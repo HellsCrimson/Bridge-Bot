@@ -1,5 +1,5 @@
 // Require the necessary discord.js classes
-const { Client, Intents, Guild, MessageEmbed } = require('discord.js');
+const { Client, Intents, MessageEmbed } = require('discord.js');
 const { token, guildsId } = require('./config.json');
 
 // Create a new client instance
@@ -11,6 +11,7 @@ client.once('ready', () => {
 });
 
 client.on('messageCreate', message => {
+	if (message.content == "") return;
 	if (!message.guild) return;
 	if (message.author != client.user)
 	{

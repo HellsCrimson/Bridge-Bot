@@ -8,6 +8,7 @@ The content should be in this form:
 ```
 {
   "token": "Your app token",
-  "guildsId": ["The id of the guild", "The id of the channel to look at"]
+  "guildsId": ["The id of the guild", "The id of the channel to look at"],
+  "clientId": "The id of the bot"
 }
 ```

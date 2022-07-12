@@ -1,6 +1,6 @@
 // Require the necessary discord.js classes
 const { Client, Intents, MessageEmbed } = require('discord.js');
-const { token, guildsId } = require('./config.json');
+require('dotenv').config();
 
 // Create a new client instance
 const client = new Client({ intents: [Intents.FLAGS.GUILDS, Intents.FLAGS.GUILD_MESSAGES] });
@@ -15,7 +15,7 @@ client.on('messageCreate', message => {
 	if (!message.guild) return;
 	if (message.author != client.user)
 	{
-		guildsId.forEach(guildId => {
+		process.env.guildsId.forEach(guildId => {
 			if (message.guildId != guildId[0])
 			{
 				const channel = client.channels.cache.get(guildId[1]);
@@ -32,4 +32,4 @@ client.on('messageCreate', message => {
    });
 
 // Login to Discord with your client's token
-client.login(token);
+client.login(process.env.token);
